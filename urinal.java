@@ -1,39 +1,34 @@
-//author - Srikruthi Vedantham
+// author - Srikruthi Vedantham
 
 import java.lang.*;
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
-public class urinal
-{
+public class urinal {
 	public static void main(String[] args)
 	{
-	}
-	public boolean validateString(String inpStr)
-	{
-		int c=0;
-		for(int i=0;i<inpStr.length();i++)
-		{
-			if(inpStr.charAt(i)=='1'  || inpStr.charAt(i)== '0'){
-				c=0;
-			}
-			else
-			{
-				c=1;
-				break;
-			}
-		}
-		if(c==0)
-			return true;
+		System.out.println("1. File Input \n 2. Keyboard Input");
+		Scanner sc =new Scanner(System.in);
+		int s = Integer.parseInt(sc.nextLine());
+
+        if(s==1)
+        {
+			System.out.println("Enter Strings: ");
+            getString();
+        }
 		else
-			return false;
+		{
+			System.out.println("Enter File Name");
+			String filenm = sc.nextLine();
+			openFile(filenm);
+		}
 	}
-	
-	public static void openFile(String fileName)
+
+	public static void openFile(String s)
 	{
 		try
 			{
-				FileInputStream fstream = new FileInputStream(fileName);
+				FileInputStream fstream = new FileInputStream(s);
     			DataInputStream in = new DataInputStream(fstream);
     			BufferedReader br = new BufferedReader(new InputStreamReader(in));
     			String data;
@@ -61,7 +56,6 @@ public class urinal
 				f = new File("rule"+i+".txt");
 				i++;
 			}
-			//Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fname), "utf-8"));
 			if(!f.exists())
 			{
 				FileWriter fw = new FileWriter(f.getAbsoluteFile());
@@ -79,7 +73,51 @@ public class urinal
 			System.out.println(e);
 		}
 	}
-
+	
+	public static void getString()
+	{
+		Scanner sc =new Scanner(System.in);
+        String[] arrStrings = new String[100];
+		String k = sc.nextLine();
+        int i=0;
+		while(!k.equals("-1"))
+		{
+			if(validateString(k))
+			{
+				arrStrings[i++]=k;
+			}
+			else
+			{
+				System.out.println("Invalid String Entered");
+				break;
+			}
+			k = sc.nextLine();
+		}
+        for(int j=0;j<arrStrings.length;j++)
+        {
+            System.out.println(countUrinals(arrStrings[j]));
+        }
+	}
+	
+	public static boolean validateString(String inpStr)
+	{
+		int c=0;
+		for(int i=0;i<inpStr.length();i++)
+		{
+			if(inpStr.charAt(i)=='1'  || inpStr.charAt(i)== '0'){
+				c=0;
+			}
+			else
+			{
+				c=1;
+			}
+		}
+		if(c==0)
+			return true;
+		else
+			return false;
+	}
+	
 	public static int countUrinals(String s)
 	{
 		String orgStr = s;
