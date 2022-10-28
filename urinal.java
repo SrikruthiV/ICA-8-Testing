@@ -31,6 +31,11 @@ public class urinal
 		int countMen = 0;
 		for(int i=0;i<s.length()-1;i++) 
 		{
+			if(s.charAt(i)=='1' && s.charAt(i+1)=='1')
+			{
+				countMen=-1;
+				break;
+			}
 			if(i==0)
 			{
 				if(s.charAt(i)=='0' && s.charAt(i+1)=='0')
@@ -56,6 +61,8 @@ public class urinal
 		}
 		if(countMen==0)
 			return 0;
+		else if(countMen==-1)
+			return -1;
 		else
 			return countMen;
 	}
