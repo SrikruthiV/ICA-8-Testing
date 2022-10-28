@@ -17,7 +17,7 @@ class urinalsTest {
 	{
 		urinal ob = new urinal();
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Validate String Second Test");
-		assertEquals(false, ob.validateString("1023"));
+		assertEquals(false, ob.validateString("1231"));
 	}
 	
 	@Test
@@ -33,7 +33,6 @@ class urinalsTest {
 	{
 		urinal ob = new urinal();
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Count Urinals First Test");
-		assertEquals(3, ob.validateString("10001"));
+		assertEquals(3, ob.countUrinals("10001"));
 	}
-	
 }
