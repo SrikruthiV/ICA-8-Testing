@@ -68,4 +68,12 @@ class urinalsTest {
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Count Urinals Fifth Test");
 		assertEquals(-1, ob.countUrinals("011"));
 	}
+	
+	@Test
+	void testOpenFile()
+	{
+		urinal ob = new urinal();
+		System.out.println("==== SRIKRUTHI VEDANTHAM ==== File Doesn't Exist Test");
+		assertEquals(3, ob.openFile("ABC.dat"));
+	}
 }

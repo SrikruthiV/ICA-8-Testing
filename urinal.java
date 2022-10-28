@@ -1,4 +1,9 @@
 //author - Srikruthi Vedantham
+
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
 public class urinal
 {
 	public static void main(String[] args)
@@ -25,6 +30,29 @@ public class urinal
 			return false;
 	}
 	
+	public static int openFile(String fileName)
+	{
+		String[] arrStr = new String[100];
+		try
+			{
+				
+				FileInputStream fstream = new FileInputStream(fileName);
+    			DataInputStream in = new DataInputStream(fstream);
+    			BufferedReader br = new BufferedReader(new InputStreamReader(in));
+    			String data;
+				while((data=br.readLine())!=null)
+				{
+					arrStr = data.split(" ");
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e);
+			}
+		
+		return (arrStr.length);
+	}
+
 	public static int countUrinals(String s)
 	{
 		String orgStr = s;
