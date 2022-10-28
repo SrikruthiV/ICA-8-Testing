@@ -7,11 +7,11 @@ import java.io.*;
 public class urinal {
 	public static void main(String[] args)
 	{
-		System.out.println("1. File Input \n 2. Keyboard Input");
+		System.out.println("1. File Input\n 2. Keyboard Input");
 		Scanner sc =new Scanner(System.in);
 		int s = Integer.parseInt(sc.nextLine());
 
-        if(s==1)
+        if(s==2)
         {
 			System.out.println("Enter Strings: ");
             getString();
