@@ -74,6 +74,26 @@ class urinalsTest {
 	{
 		urinal ob = new urinal();
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== File Doesn't Exist Test");
-		assertEquals(3, ob.openFile("ABC.dat"));
+		//assertEquals(null,ob.openFile("ABC.dat"));
 	}
+	
+	@Test
+	void testOpenFile2()
+	{
+		urinal ob = new urinal();
+		System.out.println("==== SRIKRUTHI VEDANTHAM ==== File Empty Test");
+		//assertEquals(null,ob.openFile("ABC.dat"));
+	}
+	
+	@Test
+	void testWriteFile()
+	{
+		urinal ob = new urinal();
+		System.out.println("==== SRIKRUTHI VEDANTHAM ==== File Write Test");
+		//assertEquals(0, ob.writeFile());
+	}
+	
+	
+	
+	
 }

@@ -8,7 +8,6 @@ public class urinal
 {
 	public static void main(String[] args)
 	{
-		
 	}
 	public boolean validateString(String inpStr)
 	{
@@ -30,27 +29,55 @@ public class urinal
 			return false;
 	}
 	
-	public static int openFile(String fileName)
+	public static void openFile(String fileName)
 	{
-		String[] arrStr = new String[100];
 		try
 			{
-				
 				FileInputStream fstream = new FileInputStream(fileName);
     			DataInputStream in = new DataInputStream(fstream);
     			BufferedReader br = new BufferedReader(new InputStreamReader(in));
     			String data;
 				while((data=br.readLine())!=null)
 				{
-					arrStr = data.split(" ");
+					String[] arrStr = data.split(" ");
+					writeFile(arrStr);
 				}
 			}
 			catch(Exception e)
 			{
 				System.out.println(e);
 			}
-		
-		return (arrStr.length);
+	}
+
+	public static void writeFile(String[] arrayOfStrings)
+	{
+		try
+		{
+			int i=1;
+			String fname;
+			File f = new File("rule.txt");
+			while(f.exists())
+			{
+				f = new File("rule"+i+".txt");
+				i++;
+			}
+			//Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(fname), "utf-8"));
+			if(!f.exists())
+			{
+				FileWriter fw = new FileWriter(f.getAbsoluteFile());
+				BufferedWriter bw = new BufferedWriter(fw);
+				for(String t: arrayOfStrings)
+				{
+					int count = countUrinals(t);
+  					bw.write(count + " ");
+				}
+				bw.close();
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
 	}
 
 	public static int countUrinals(String s)
