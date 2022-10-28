@@ -60,4 +60,12 @@ class urinalsTest {
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Count Urinals Fourth Test");
 		assertEquals(0, ob.countUrinals("011"));
 	}
+	
+	@Test
+	void testcountUrinals5()
+	{
+		urinal ob = new urinal();
+		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Count Urinals Fifth Test");
+		assertEquals(-1, ob.countUrinals("011"));
+	}
 }
