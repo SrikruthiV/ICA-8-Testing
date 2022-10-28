@@ -11,5 +11,13 @@ class urinalsTest {
 		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Validate String First Test");
 		assertEquals(false, obj.validateString("1011"));
 	}
+	
+	@Test
+	void testValidate2()
+	{
+		urinal ob = new urinal();
+		System.out.println("==== SRIKRUTHI VEDANTHAM ==== Validate String Second Test");
+		assertEquals(false, ob.validateString("1023"));
+	}
 
 }

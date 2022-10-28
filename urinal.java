@@ -5,9 +5,22 @@ public class urinal
 	{
 		
 	}
-	public boolean validateString(String s)
+	public boolean validateString(String inpStr)
 	{
-		System.out.println("Not yet Implemented");
-		return true;
+		int c=0;
+		for(int i=0;i<inpStr.length();i++)
+		{
+			if(inpStr.charAt(i)=='1'  || inpStr.charAt(i)== '0'){
+				c=0;
+			}
+			else
+			{
+				c=1;
+			}
+		}
+		if(c==0)
+			return true;
+		else
+			return false;
 	}
 }
